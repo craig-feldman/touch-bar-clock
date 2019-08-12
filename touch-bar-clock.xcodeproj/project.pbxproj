@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,16 +11,29 @@
 		449B5D2F2300B22400A9E245 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D2E2300B22400A9E245 /* ViewController.swift */; };
 		449B5D312300B22500A9E245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449B5D302300B22500A9E245 /* Assets.xcassets */; };
 		449B5D342300B22500A9E245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449B5D322300B22500A9E245 /* Main.storyboard */; };
+		449B5D3D2300B4CA00A9E245 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */; };
+		449B5D452300EA9C00A9E245 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D432300EA9C00A9E245 /* TouchBarController.swift */; };
+		449B5D4E230104E300A9E245 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B5D4D230104E300A9E245 /* ServiceManagement.framework */; };
+		449B5D50230106B200A9E245 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B5D4F230106B200A9E245 /* DFRFoundation.framework */; };
+		449B5D522301087F00A9E245 /* ApplePrivateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D512301087F00A9E245 /* ApplePrivateHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		449B5D292300B22400A9E245 /* Take a break.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Take a break.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		449B5D292300B22400A9E245 /* touch-bar-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "touch-bar-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		449B5D2C2300B22400A9E245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		449B5D2E2300B22400A9E245 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		449B5D302300B22500A9E245 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449B5D332300B22500A9E245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		449B5D352300B22500A9E245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		449B5D362300B22500A9E245 /* Take_a_break.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Take_a_break.entitlements; sourceTree = "<group>"; };
+		449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		449B5D3E2300E62F00A9E245 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
+		449B5D432300EA9C00A9E245 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
+		449B5D472300ED0700A9E245 /* TouchBarPrivateApi-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchBarPrivateApi-Bridging.h"; sourceTree = "<group>"; };
+		449B5D4D230104E300A9E245 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		449B5D4F230106B200A9E245 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
+		449B5D512301087F00A9E245 /* ApplePrivateHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplePrivateHelpers.m; sourceTree = "<group>"; };
+		449B5D53230108C700A9E245 /* ApplePrivateHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplePrivateHelpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449B5D50230106B200A9E245 /* DFRFoundation.framework in Frameworks */,
+				449B5D4E230104E300A9E245 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,38 +52,54 @@
 		449B5D202300B22400A9E245 = {
 			isa = PBXGroup;
 			children = (
-				449B5D2B2300B22400A9E245 /* Take a break */,
+				449B5D2B2300B22400A9E245 /* touch-bar-clock */,
 				449B5D2A2300B22400A9E245 /* Products */,
+				449B5D4C230104E300A9E245 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		449B5D2A2300B22400A9E245 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				449B5D292300B22400A9E245 /* Take a break.app */,
+				449B5D292300B22400A9E245 /* touch-bar-clock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		449B5D2B2300B22400A9E245 /* Take a break */ = {
+		449B5D2B2300B22400A9E245 /* touch-bar-clock */ = {
 			isa = PBXGroup;
 			children = (
 				449B5D2C2300B22400A9E245 /* AppDelegate.swift */,
 				449B5D2E2300B22400A9E245 /* ViewController.swift */,
 				449B5D302300B22500A9E245 /* Assets.xcassets */,
 				449B5D322300B22500A9E245 /* Main.storyboard */,
+				449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */,
 				449B5D352300B22500A9E245 /* Info.plist */,
 				449B5D362300B22500A9E245 /* Take_a_break.entitlements */,
+				449B5D3E2300E62F00A9E245 /* TouchBarPrivateApi.h */,
+				449B5D472300ED0700A9E245 /* TouchBarPrivateApi-Bridging.h */,
+				449B5D432300EA9C00A9E245 /* TouchBarController.swift */,
+				449B5D512301087F00A9E245 /* ApplePrivateHelpers.m */,
+				449B5D53230108C700A9E245 /* ApplePrivateHelpers.h */,
 			);
-			path = "Take a break";
+			path = "touch-bar-clock";
+			sourceTree = "<group>";
+		};
+		449B5D4C230104E300A9E245 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				449B5D4F230106B200A9E245 /* DFRFoundation.framework */,
+				449B5D4D230104E300A9E245 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		449B5D282300B22400A9E245 /* Take a break */ = {
+		449B5D282300B22400A9E245 /* touch-bar-clock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 449B5D392300B22500A9E245 /* Build configuration list for PBXNativeTarget "Take a break" */;
+			buildConfigurationList = 449B5D392300B22500A9E245 /* Build configuration list for PBXNativeTarget "touch-bar-clock" */;
 			buildPhases = (
 				449B5D252300B22400A9E245 /* Sources */,
 				449B5D262300B22400A9E245 /* Frameworks */,
@@ -78,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = "Take a break";
+			name = "touch-bar-clock";
 			productName = "Take a break";
-			productReference = 449B5D292300B22400A9E245 /* Take a break.app */;
+			productReference = 449B5D292300B22400A9E245 /* touch-bar-clock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,11 +126,12 @@
 				TargetAttributes = {
 					449B5D282300B22400A9E245 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
-			buildConfigurationList = 449B5D242300B22400A9E245 /* Build configuration list for PBXProject "Take a break" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 449B5D242300B22400A9E245 /* Build configuration list for PBXProject "touch-bar-clock" */;
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -111,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				449B5D282300B22400A9E245 /* Take a break */,
+				449B5D282300B22400A9E245 /* touch-bar-clock */,
 			);
 		};
 /* End PBXProject section */
@@ -133,8 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449B5D522301087F00A9E245 /* ApplePrivateHelpers.m in Sources */,
 				449B5D2F2300B22400A9E245 /* ViewController.swift in Sources */,
 				449B5D2D2300B22400A9E245 /* AppDelegate.swift in Sources */,
+				449B5D3D2300B4CA00A9E245 /* MainWindowController.swift in Sources */,
+				449B5D452300EA9C00A9E245 /* TouchBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,17 +306,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Take a break/Take_a_break.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "touch-bar-clock/Take_a_break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Take a break/Info.plist";
+				INFOPLIST_FILE = "touch-bar-clock/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.craigfeldman.Take-a-break";
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.craigfeldman.touch-bar-clockl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "touch-bar-clock/TouchBarPrivateApi-Bridging.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -289,24 +333,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Take a break/Take_a_break.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "touch-bar-clock/Take_a_break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Take a break/Info.plist";
+				INFOPLIST_FILE = "touch-bar-clock/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.craigfeldman.Take-a-break";
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.craigfeldman.touch-bar-clockl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "touch-bar-clock/TouchBarPrivateApi-Bridging.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		449B5D242300B22400A9E245 /* Build configuration list for PBXProject "Take a break" */ = {
+		449B5D242300B22400A9E245 /* Build configuration list for PBXProject "touch-bar-clock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				449B5D372300B22500A9E245 /* Debug */,
@@ -315,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		449B5D392300B22500A9E245 /* Build configuration list for PBXNativeTarget "Take a break" */ = {
+		449B5D392300B22500A9E245 /* Build configuration list for PBXNativeTarget "touch-bar-clock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				449B5D3A2300B22500A9E245 /* Debug */,
