@@ -15,8 +15,12 @@
     
     let dateFormatter = DateFormatter()
     
-    let breakTime: Double = 10
+    var breakTime: Double = 10
     var elapsed: Double = 0
+    
+    var displayingMessage = true
+    
+    let infoMessageDuration = 2
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -24,7 +28,7 @@
         print("Loaded")
         
         button = NSButton(title:"Hello", target:self, action: #selector(buttonAction(_:)))
-        button.attributedTitle = NSAttributedString(string: "Hello", attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
+        setButtonText(text: "Hello")
         
         dateFormatter.timeStyle = .short
         
@@ -32,6 +36,7 @@
         
         addToTouchBar(button, "com.craigfeldman.button")
     }
+    
     @objc func buttonAction(_ sender: NSButton)
     {
         print("tapped")
@@ -41,16 +46,31 @@
         
         resetElapsed()
         
-        button.attributedTitle = NSAttributedString(string: "👍", attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
+        setButtonText(text: "👍", colour: baseColour)
     }
     
+    var infoMessageElapsedDuration = 1
     @objc func tick() -> Void {
         elapsed += 1
-        let time = dateFormatter.string(from: Date());
-        let colour = getColor(power: 1 - calculateElapsedPercentage())
+        print(elapsed)
         
-        button.attributedTitle = NSAttributedString(string: time, attributes: [ NSAttributedString.Key.foregroundColor : colour])
+        if !displayingMessage {
+            let time = dateFormatter.string(from: Date());
+            let colour = getColor(power: 1 - calculateElapsedPercentage())
+            
+            setButtonText(text: time, colour: colour, isMessage: false)
+        } else {
+            infoMessageElapsedDuration += 1
+            
+            if (infoMessageElapsedDuration >= infoMessageDuration) {
+                displayingMessage = false
+                infoMessageElapsedDuration = 1
+                
+            }
+            
+        }
     }
+    
     
     func calculateElapsedPercentage() -> Double {
         let percent = min(elapsed, breakTime) / breakTime
@@ -73,6 +93,19 @@
     
     func resetElapsed() {
         elapsed = 0
+    }
+    
+    func setButtonText(text: String, colour: NSColor, isMessage: Bool = true) {
+        if isMessage {
+            displayingMessage = true
+        }
+        
+        button.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : colour])
+    }
+    
+    func setButtonText(text: String) {
+        displayingMessage = true;
+        button.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
     }
     
   }

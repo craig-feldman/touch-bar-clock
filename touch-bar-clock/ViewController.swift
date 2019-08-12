@@ -9,11 +9,20 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+   
+    @IBOutlet weak var applyButton: NSButton!
+    @IBOutlet weak var breakTimeTextField: NSTextField!
+    
+    var windowController: MainWindowController!
+    var button: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear() {
+        windowController = self.view.window?.windowController as! MainWindowController
+        button = windowController.button
     }
 
     override var representedObject: Any? {
@@ -22,6 +31,18 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func applyButtonClicked(_ sender: NSButton) {
+        print("Apply clicked")
+        print(breakTimeTextField.stringValue)
+        let breakTime = Double(breakTimeTextField.stringValue)
+        if (breakTime != nil) {
+            windowController.breakTime = breakTime ?? windowController.breakTime
+        } else {
+            windowController.setButtonText(text: "👎")
+        }
+        
+        windowController.setButtonText(text: "OK")
+    }
+    
 }
 
