@@ -11,10 +11,12 @@ import Cocoa
 class ViewController: NSViewController {
    
     @IBOutlet weak var applyButton: NSButton!
+    @IBOutlet weak var resetElapsedTimeButton: NSButton!
     @IBOutlet weak var breakTimeTextField: NSTextField!
+    @IBOutlet weak var currentBreakTimeLabel: NSTextField!
     
     var windowController: MainWindowController!
-    var button: NSButton!
+    var touchBarButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,9 @@ class ViewController: NSViewController {
     
     override func viewDidAppear() {
         windowController = self.view.window?.windowController as! MainWindowController
-        button = windowController.button
+        
+        touchBarButton = windowController.touchBarButton
+        currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
     }
 
     override var representedObject: Any? {
@@ -34,15 +38,20 @@ class ViewController: NSViewController {
     @IBAction func applyButtonClicked(_ sender: NSButton) {
         print("Apply clicked")
         print(breakTimeTextField.stringValue)
-        let breakTime = Double(breakTimeTextField.stringValue)
+        let breakTime = TimeInterval(breakTimeTextField.stringValue)
         if (breakTime != nil) {
             windowController.breakTime = breakTime ?? windowController.breakTime
+            
+            currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
+            windowController.setButtonText(text: "OK")
+
         } else {
             windowController.setButtonText(text: "👎")
         }
-        
-        windowController.setButtonText(text: "OK")
     }
     
+    @IBAction func resetElapsedTimeButtonClicked(_ sender: NSButton) {
+        windowController.resetElapsed()
+    }
 }
 

@@ -8,36 +8,72 @@
   
   import Cocoa
   
+  extension TimeInterval{
+    
+    func stringFromTimeInterval() -> String {
+        
+        let time = NSInteger(self)
+        
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+        
+        //return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+        var stringTime: String {
+            if hours != 0 {
+                return "\(hours)h \(minutes)m \(seconds)s"
+            } else if minutes != 0 {
+                return "\(minutes)m \(seconds)s"
+            } else {
+                return "\(seconds)s"
+            }
+        }
+        
+        return stringTime
+    }
+  }
+  
   class MainWindowController: NSWindowController {
     
-    var button: NSButton!
     let baseColour = NSColor.blue
     
-    let dateFormatter = DateFormatter()
+    var menuBarButton: NSStatusBarButton!
+    var touchBarButton: NSButton!
     
-    var breakTime: Double = 10
-    var elapsed: Double = 0
+    let dateFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter
+    }()
     
+    var breakTime: TimeInterval = 600
+    var elapsed: TimeInterval = 0
+    
+    let infoMessageDuration: TimeInterval = 2
     var displayingMessage = true
-    
-    let infoMessageDuration = 2
     
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        print("Loaded")
+        print("Loaded main window")
         
-        button = NSButton(title:"Hello", target:self, action: #selector(buttonAction(_:)))
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.window = self
+        menuBarButton = appDelegate.statusItem.button
+        
+        touchBarButton = NSButton(title:"Hello", target:self, action: #selector(touchBarButtonTapped(_:)))
         setButtonText(text: "Hello")
         
         dateFormatter.timeStyle = .short
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats:true);
         
-        addToTouchBar(button, "com.craigfeldman.button")
+        addToTouchBar(touchBarButton, "com.craigfeldman.touchBarButton")
+        
+
     }
     
-    @objc func buttonAction(_ sender: NSButton)
+    @objc func touchBarButtonTapped(_ sender: NSButton)
     {
         print("tapped")
         
@@ -45,32 +81,26 @@
         print(elapsedPercentage)
         
         resetElapsed()
-        
-        setButtonText(text: "👍", colour: baseColour)
     }
     
-    var infoMessageElapsedDuration = 1
+    var infoMessageElapsedDuration: TimeInterval = 1
+    
     @objc func tick() -> Void {
         elapsed += 1
         print(elapsed)
         
         if !displayingMessage {
-            let time = dateFormatter.string(from: Date());
             let colour = getColor(power: 1 - calculateElapsedPercentage())
-            
-            setButtonText(text: time, colour: colour, isMessage: false)
+            setButtonTextToCurrentDateTime(colour: colour)
         } else {
             infoMessageElapsedDuration += 1
             
             if (infoMessageElapsedDuration >= infoMessageDuration) {
                 displayingMessage = false
                 infoMessageElapsedDuration = 1
-                
             }
-            
         }
     }
-    
     
     func calculateElapsedPercentage() -> Double {
         let percent = min(elapsed, breakTime) / breakTime
@@ -93,20 +123,21 @@
     
     func resetElapsed() {
         elapsed = 0
+        setButtonText(text: "Ok 👍")
     }
     
-    func setButtonText(text: String, colour: NSColor, isMessage: Bool = true) {
-        if isMessage {
-            displayingMessage = true
-        }
+    func setButtonTextToCurrentDateTime(colour: NSColor) {
+        let currentDateTime = dateFormatter.string(from: Date());
+
+        touchBarButton.attributedTitle = NSAttributedString(string: currentDateTime, attributes: [ NSAttributedString.Key.foregroundColor : colour])
         
-        button.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : colour])
+        menuBarButton?.attributedTitle = NSAttributedString(string: currentDateTime, attributes: [ NSAttributedString.Key.foregroundColor : colour])
     }
     
     func setButtonText(text: String) {
         displayingMessage = true;
-        button.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
+        touchBarButton.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
+        menuBarButton?.attributedTitle = NSAttributedString(string: text, attributes: [ NSAttributedString.Key.foregroundColor : baseColour])
     }
-    
   }
   
