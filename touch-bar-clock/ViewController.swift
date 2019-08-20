@@ -14,8 +14,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var resetElapsedTimeButton: NSButton!
     @IBOutlet weak var breakTimeTextField: NSTextField!
     @IBOutlet weak var currentBreakTimeLabel: NSTextField!
+    @IBOutlet weak var currentElapsedLabel: NSTextField!
     
-    var windowController: MainWindowController!
+    //var windowController: MainWindowController!
     var touchBarButton: NSButton!
     
     override func viewDidLoad() {
@@ -23,10 +24,11 @@ class ViewController: NSViewController {
     }
     
     override func viewDidAppear() {
-        windowController = self.view.window?.windowController as! MainWindowController
-        
-        touchBarButton = windowController.touchBarButton
-        currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
+//        windowController = (self.view.window?.windowController as! MainWindowController)
+//
+//        touchBarButton = windowController.touchBarButton
+//        currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
+//        currentElapsedLabel.stringValue = windowController.elapsed.stringFromTimeInterval()
     }
 
     override var representedObject: Any? {
@@ -36,22 +38,22 @@ class ViewController: NSViewController {
     }
 
     @IBAction func applyButtonClicked(_ sender: NSButton) {
-        print("Apply clicked")
-        print(breakTimeTextField.stringValue)
-        let breakTime = TimeInterval(breakTimeTextField.stringValue)
-        if (breakTime != nil) {
-            windowController.breakTime = breakTime ?? windowController.breakTime
-            
-            currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
-            windowController.setButtonText(text: "OK")
-
-        } else {
-            windowController.setButtonText(text: "👎")
-        }
+//        print("Apply clicked")
+//        print(breakTimeTextField.stringValue)
+//        let breakTime = TimeInterval(breakTimeTextField.stringValue)
+//        if (breakTime != nil) {
+//            windowController.breakTime = breakTime ?? windowController.breakTime
+//
+//            currentBreakTimeLabel.stringValue = windowController.breakTime.stringFromTimeInterval()
+//            windowController.setButtonText(text: "OK")
+//
+//        } else {
+//            windowController.setButtonText(text: "👎")
+//        }
     }
     
     @IBAction func resetElapsedTimeButtonClicked(_ sender: NSButton) {
-        windowController.resetElapsed()
+        // windowController.resetElapsed()
     }
 }
 

@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4467215E230C9513005A7A66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467215D230C9513005A7A66 /* SettingsViewController.swift */; };
+		44672160230C9CA7005A7A66 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467215F230C9CA7005A7A66 /* Data.swift */; };
 		449B5D2D2300B22400A9E245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D2C2300B22400A9E245 /* AppDelegate.swift */; };
 		449B5D2F2300B22400A9E245 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D2E2300B22400A9E245 /* ViewController.swift */; };
 		449B5D312300B22500A9E245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449B5D302300B22500A9E245 /* Assets.xcassets */; };
 		449B5D342300B22500A9E245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449B5D322300B22500A9E245 /* Main.storyboard */; };
-		449B5D3D2300B4CA00A9E245 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */; };
 		449B5D452300EA9C00A9E245 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B5D432300EA9C00A9E245 /* TouchBarController.swift */; };
 		449B5D4E230104E300A9E245 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B5D4D230104E300A9E245 /* ServiceManagement.framework */; };
 		449B5D50230106B200A9E245 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449B5D4F230106B200A9E245 /* DFRFoundation.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4467215D230C9513005A7A66 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4467215F230C9CA7005A7A66 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		449B5D292300B22400A9E245 /* touch-bar-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "touch-bar-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		449B5D2C2300B22400A9E245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		449B5D2E2300B22400A9E245 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +29,6 @@
 		449B5D332300B22500A9E245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		449B5D352300B22500A9E245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		449B5D362300B22500A9E245 /* Take_a_break.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Take_a_break.entitlements; sourceTree = "<group>"; };
-		449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		449B5D3E2300E62F00A9E245 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		449B5D432300EA9C00A9E245 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		449B5D472300ED0700A9E245 /* TouchBarPrivateApi-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchBarPrivateApi-Bridging.h"; sourceTree = "<group>"; };
@@ -69,11 +71,12 @@
 		449B5D2B2300B22400A9E245 /* touch-bar-clock */ = {
 			isa = PBXGroup;
 			children = (
+				4467215D230C9513005A7A66 /* SettingsViewController.swift */,
 				449B5D2C2300B22400A9E245 /* AppDelegate.swift */,
+				4467215F230C9CA7005A7A66 /* Data.swift */,
 				449B5D2E2300B22400A9E245 /* ViewController.swift */,
 				449B5D302300B22500A9E245 /* Assets.xcassets */,
 				449B5D322300B22500A9E245 /* Main.storyboard */,
-				449B5D3C2300B4CA00A9E245 /* MainWindowController.swift */,
 				449B5D352300B22500A9E245 /* Info.plist */,
 				449B5D362300B22500A9E245 /* Take_a_break.entitlements */,
 				449B5D3E2300E62F00A9E245 /* TouchBarPrivateApi.h */,
@@ -165,10 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4467215E230C9513005A7A66 /* SettingsViewController.swift in Sources */,
+				44672160230C9CA7005A7A66 /* Data.swift in Sources */,
 				449B5D522301087F00A9E245 /* ApplePrivateHelpers.m in Sources */,
 				449B5D2F2300B22400A9E245 /* ViewController.swift in Sources */,
 				449B5D2D2300B22400A9E245 /* AppDelegate.swift in Sources */,
-				449B5D3D2300B4CA00A9E245 /* MainWindowController.swift in Sources */,
 				449B5D452300EA9C00A9E245 /* TouchBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
