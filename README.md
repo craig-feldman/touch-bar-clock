@@ -5,14 +5,14 @@
 Adds a permanent clock in the touch and status bar with an unobtrusive reminder to take breaks.
 
 ## Break reminder
-The colour of the clock transitions from green to yellloe, orange, and then red, indiciating that you are probably due for a break!
+The colour of the clock transitions from green to yelllow, orange, and then red, indicating that you are probably due for a break!
 
 ## The menu bar and UI
 ![alt text][ui]
 
 The status bar displays the current time and a colour indicating the elapsed duration since a reset was triggered.
 
-When clicking on the button in the menu bar, a popover is displayed. The popover displays the current target work time duration and the ability to update it. You can also choose to show the elapsed durtion, rather than current time, or quit the application completely.
+When clicking on the button in the menu bar, a popover is displayed. The popover displays the current target work time duration and the ability to update it. You can also choose to show the elapsed duration, rather than current time, or quit the application completely.
 
 Clicking on `reset elapsed` will reset the elapsed timer. See [Resetting the elapsed time](#resetting-the-elapsed-time)
 
@@ -26,4 +26,4 @@ When tapping on the touch bar button the elapsed timer is reset. See [Resetting 
 
 ## Resetting the elapsed time
 
-Resetting the elapsed time should be used when returning from a break. The clock colour will return to the oriignal green and the transition will restart.
+Resetting the elapsed time should be used when returning from a break. The clock colour will return to the original green and the transition will restart.
