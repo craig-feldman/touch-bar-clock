@@ -22,6 +22,7 @@
 		4467215D230C9513005A7A66 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4467215F230C9CA7005A7A66 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		44672161230CB68D005A7A66 /* touch-bar-clock-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "touch-bar-clock-gif.gif"; sourceTree = "<group>"; };
+		44672162230CB724005A7A66 /* touch-bar-ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch-bar-ui.png"; sourceTree = "<group>"; };
 		449B5D292300B22400A9E245 /* touch-bar-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "touch-bar-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		449B5D2C2300B22400A9E245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		449B5D302300B22500A9E245 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				44672161230CB68D005A7A66 /* touch-bar-clock-gif.gif */,
+				44672162230CB724005A7A66 /* touch-bar-ui.png */,
 				4467215D230C9513005A7A66 /* SettingsViewController.swift */,
 				449B5D2C2300B22400A9E245 /* AppDelegate.swift */,
 				4467215F230C9CA7005A7A66 /* Data.swift */,
