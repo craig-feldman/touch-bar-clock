@@ -5,7 +5,7 @@
 Adds a permanent clock in the touch and status bar with an unobtrusive reminder to take breaks.
 
 ## Break reminder
-The colour of the clock transitions from green to yelllow, orange, and then red, indicating that you are probably due for a break!
+The colour of the clock (in both the touch and menu bar) transitions slowly from green through to yellow, orange, and red, indicating that you are probably due for a break!
 
 ## The menu bar and UI
 ![alt text][ui]
