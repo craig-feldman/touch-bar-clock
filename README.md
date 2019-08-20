@@ -14,7 +14,7 @@ The status bar displays the current time and a colour indicating the elapsed dur
 
 When clicking on the button in the menu bar, a popover is displayed. The popover displays the current target work time duration and the ability to update it. You can also choose to show the elapsed duration, rather than current time, or quit the application completely.
 
-Clicking on `reset elapsed` will reset the elapsed timer. See [Resetting the elapsed time](#resetting-the-elapsed-time)
+Clicking on `reset elapsed` will reset the elapsed timer. See [Resetting the elapsed time].(#resetting-the-elapsed-time)
 
 ## The touchbar and transitions
 
@@ -22,7 +22,7 @@ The following gif shows the colour transitions for a (condensed) target work dur
 
 ![alt text][gif]
 
-When tapping on the touch bar button the elapsed timer is reset. See [Resetting the elapsed time](#resetting-the-elapsed-time)
+When tapping on the touch bar button the elapsed timer is reset. See [Resetting the elapsed time].(#resetting-the-elapsed-time)
 
 ## Resetting the elapsed time
 
