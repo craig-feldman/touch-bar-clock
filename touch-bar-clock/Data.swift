@@ -11,7 +11,7 @@ import Foundation
 struct Data {
     static let baseColour = NSColor.blue
     
-    static var breakTime: TimeInterval = 600
+    static var breakTime: TimeInterval = 3600
     static var elapsed: TimeInterval = 0
     
     // The duration (in seconds) that an info message will be displayed
